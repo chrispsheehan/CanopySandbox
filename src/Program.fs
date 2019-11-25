@@ -1,47 +1,24 @@
 ﻿// Learn more about F# at http://fsharp.org
 
-open canopy.runner.classic
-open canopy.configuration
+open CanopyFunctions
 open canopy.classic
 
 [<EntryPoint>]
 let main argv =
-    canopy.configuration.chromeDir <- System.AppContext.BaseDirectory
 
-    //start an instance of chrome
-    start chrome
 
-    //this is how you define a test
-    "taking canopy for a spin" &&& fun _ ->
-        //this is an F# function body, it's whitespace enforced
+    startDriver()
 
-        //go to url
-        url "http://lefthandedgoat.github.io/canopy/testpages/"
+    printfn "Running..."
+    
+    url "https://www.bbc.co.uk/"
 
-        //assert that the element with an id of 'welcome' has
-        //the text 'Welcome'
-        "#welcome" == "Welcome"
+    click "Sport"
 
-        //assert that the element with an id of 'firstName' has the value 'John'
-        "#firstName" == "John"
+    click "Rugby Union"
 
-        //change the value of element with
-        //an id of 'firstName' to 'Something Else'
-        "#firstName" << "Something Else"
+    quitDriver()
 
-        //verify another element's value, click a button,
-        //verify the element is updated
-        "#button_clicked" == "button not clicked"
-        click "#button"
-        "#button_clicked" == "button clicked"
-
-    //run all tests
-    run()
-
-    printfn "press [enter] to exit"
-    System.Console.ReadLine() |> ignore
-
-    quit()  
-
+    printfn "finished"
 
     0 // return an integer exit code

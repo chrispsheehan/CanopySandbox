@@ -13,3 +13,4 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 
 RUN dotnet build /src
 WORKDIR /src/bin/Debug/netcoreapp2.1
+CMD dotnet CanopySandbox.dll

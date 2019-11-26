@@ -10,7 +10,7 @@ let main argv =
     startDriver()
 
     printfn "Running..."
-    
+
     url "https://www.bbc.co.uk/"
 
     click "Sport"
@@ -21,4 +21,4 @@ let main argv =
 
     printfn "finished"
 
-    0 // return an integer exit code
+    1 // return an integer exit code

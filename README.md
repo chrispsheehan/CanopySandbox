@@ -1,7 +1,7 @@
 # CanopySandbox
 
 ### Build it
-```docker build -it fsharp-thing .```
+```docker build -t fsharp-thing .```
 
 ### Run it
 ```docker run fsharp-thing```
